@@ -6,7 +6,7 @@
  * 
  */
  
-float rand; //for random integers
+int rand; //for random integers
  
 //images (part 1)
 PImage side1;
@@ -38,16 +38,31 @@ void draw() {
   //text
   fill(0,0,0);
   textSize(20);
-  text(rand, 350, 25);
+  text(rand+1, 350, 25);
   
   //dice
-  if(rand <= 1){
+  if(rand ==0){
     image(side1,350,300,200,200);
+  }
+  if(rand ==1){
+    image(side2,350,300,200,200);
+  }
+  if(rand ==2){
+    image(side3,350,300,200,200);
+  }
+  if(rand ==3){
+    image(side4,350,300,200,200);
+  }
+  if(rand ==4){
+    image(side5,350,300,200,200);
+  }
+  if(rand ==5){
+    image(side6,350,300,200,200);
   }
 }
 
 void keyPressed(){
-  if(key == 'r'){
-    rand=random(0,5);
+  if(key == 'r' || key == 'R'){
+    rand=int(random(0,6));
   }
 }
