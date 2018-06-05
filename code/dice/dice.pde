@@ -9,9 +9,11 @@
 //for random integers
 int die1;
 int die2;
+int die3;
 
 //display extra dice or not
 boolean display2 = false;
+boolean display3 = false;
 
 //images (part 1)
 PImage side1;
@@ -81,11 +83,34 @@ void draw() {
       image(side6, 125, 300, 200, 200);
     }
   }
+  
+  //die 3
+  if (display3) {
+
+    if (die3==0) {
+      image(side1, 575, 300, 200, 200);
+    }
+    if (die3==1) {
+      image(side2, 575, 300, 200, 200);
+    }
+    if (die3==2) {
+      image(side3, 575, 300, 200, 200);
+    }
+    if (die3==3) {
+      image(side4, 575, 300, 200, 200);
+    }
+    if (die3==4) {
+      image(side5, 575, 300, 200, 200);
+    }
+    if (die3==5) {
+      image(side6, 575, 300, 200, 200);
+    }
+  }
 }
 
 void keyPressed() {
 
-  //reroll
+  //rerolling all dice
   if (key == 'r' || key == 'R') {
     die1=int(random(0, 6));
     loop();
@@ -93,6 +118,11 @@ void keyPressed() {
 
   if (key == 'r' || key == 'R') {
     die2=int(random(0, 6));
+    loop();
+  }
+
+  if (key == 'r' || key == 'R') {
+    die3=int(random(0, 6));
     loop();
   }
 
@@ -107,10 +137,16 @@ void keyPressed() {
   //# dice selection
   if (key == '1') {
     display2 = false;
+    display3 = false;
   }
 
   if (key == '2') {
     display2 = true;
-    die2=0;
+    display3 = false;
+  }
+  
+  if (key == '3') {
+    display2 = true;
+    display3 = true;
   }
 }
