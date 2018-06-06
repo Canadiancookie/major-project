@@ -43,6 +43,10 @@ void draw() {
 
   imageMode(CENTER);
   textAlign(CENTER);
+  
+  fill(0, 0, 0);
+  textSize(20);
+  text(sumdie, 350, 25);
 
   //die 1
   if (die1==0) {
@@ -128,42 +132,83 @@ void keyPressed() {
 
     if (display1 && !display2 && !display3) {
       sumdie=die1;
-      fill(0, 0, 0);
-      textSize(20);
-      text(sumdie, 350, 25);
     }
 
     if (display1 && display2 && !display3) {
       sumdie=die1+die2;
-      fill(0, 0, 0);
-      textSize(20);
-      text(sumdie, 350, 25);
     }
     
     if (display1 && display2 && display3) {
       sumdie=die1+die2+die3;
-      fill(0, 0, 0);
-      textSize(20);
-      text(sumdie, 350, 25);
+    }
+  }
+  
+  //rerolling single dice
+  if (key == '7') {
+    die1=int(random(1,7));
+    
+    if (display1 && !display2 && !display3) {
+      sumdie=die1;
+    }
+
+    if (display1 && display2 && !display3) {
+      sumdie=die1+die2;
+    }
+    
+    if (display1 && display2 && display3) {
+      sumdie=die1+die2+die3;
+    }
+  }
+  if (key == '8') {
+    die2=int(random(1,7));
+    
+    if (display1 && !display2 && !display3) {
+      sumdie=die1;
+    }
+
+    if (display1 && display2 && !display3) {
+      sumdie=die1+die2;
+    }
+    
+    if (display1 && display2 && display3) {
+      sumdie=die1+die2+die3;
+    }
+  }
+  if (key == '9') {
+    die3=int(random(1,7));
+    
+    if (display1 && !display2 && !display3) {
+      sumdie=die1;
+    }
+
+    if (display1 && display2 && !display3) {
+      sumdie=die1+die2;
+    }
+    
+    if (display1 && display2 && display3) {
+      sumdie=die1+die2+die3;
     }
   }
 
-  //# dice selection
+  //number of dice onscreen
   if (key == '1') {
     display1 = true;
     display2 = false;
     display3 = false;
+    sumdie=die1;
   }
 
   if (key == '2') {
     display1 = true;
     display2 = true;
     display3 = false;
+    sumdie=die1+die2;
   }
 
   if (key == '3') {
     display1 = true;
     display2 = true;
     display3 = true;
+    sumdie=die1+die2+die3;
   }
 }
