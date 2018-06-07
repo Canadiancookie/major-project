@@ -45,19 +45,32 @@ void draw() {
   imageMode(CENTER);
   rectMode(CENTER);
   textAlign(CENTER);
-  
+
+  if (die1>=1) {
+    fill(0, 0, 0);
+    textSize(20);
+
+    //if the dice sides equal 1-7, 9-10, or 12-17, say "You rolled a (number)"
+    if (sumdie>=1 && sumdie<=7 || sumdie==9 || sumdie==10 || sumdie>= 12 && sumdie <=17) {
+      text("You rolled a " + sumdie, 350, 25);
+    }
+
+    //if the dice sides equal 8, 11, or 18, say "You rolled an (number)"
+    if (sumdie==8 || sumdie==11 || sumdie==18) {
+      text("You rolled an " + sumdie, 350, 25);
+    }
+  }
+
+  //legend box
+  stroke(0, 0, 0);
+  strokeWeight(2);
+  fill(200, 200, 200);
+  rect(350, 525, 800, 200);
+
+  //legend text
   fill(0, 0, 0);
   textSize(20);
-  text(sumdie, 350, 25);
-  
-  stroke(0,0,0);
-  strokeWeight(2);
-  fill(200,200,200);
-  rect(350,525,800,200);
-  
-  fill(0,0,0);
   text("Legend", 350, 450);
-  
   textSize(16);
   text("1, 2, 3 - select number of dice", 350, 490);
   text("8, 9, 0 - reroll individual dice", 350, 530);
@@ -152,16 +165,16 @@ void keyPressed() {
     if (display1 && display2 && !display3) {
       sumdie=die1+die2;
     }
-    
+
     if (display1 && display2 && display3) {
       sumdie=die1+die2+die3;
     }
   }
-  
+
   //rerolling single dice
   if (key == '8') {
-    die1=int(random(1,7));
-    
+    die1=int(random(1, 7));
+
     if (display1 && !display2 && !display3) {
       sumdie=die1;
     }
@@ -169,14 +182,14 @@ void keyPressed() {
     if (display1 && display2 && !display3) {
       sumdie=die1+die2;
     }
-    
+
     if (display1 && display2 && display3) {
       sumdie=die1+die2+die3;
     }
   }
   if (key == '9') {
-    die2=int(random(1,7));
-    
+    die2=int(random(1, 7));
+
     if (display1 && !display2 && !display3) {
       sumdie=die1;
     }
@@ -184,14 +197,14 @@ void keyPressed() {
     if (display1 && display2 && !display3) {
       sumdie=die1+die2;
     }
-    
+
     if (display1 && display2 && display3) {
       sumdie=die1+die2+die3;
     }
   }
   if (key == '0') {
-    die3=int(random(1,7));
-    
+    die3=int(random(1, 7));
+
     if (display1 && !display2 && !display3) {
       sumdie=die1;
     }
@@ -199,7 +212,7 @@ void keyPressed() {
     if (display1 && display2 && !display3) {
       sumdie=die1+die2;
     }
-    
+
     if (display1 && display2 && display3) {
       sumdie=die1+die2+die3;
     }
