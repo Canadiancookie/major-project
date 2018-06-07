@@ -11,6 +11,7 @@ int die1;
 int die2;
 int die3;
 
+//calculate die sides added together
 int sumdie;
 
 //display extra dice or not
@@ -42,82 +43,96 @@ void draw() {
   background(255, 255, 255);
 
   imageMode(CENTER);
+  rectMode(CENTER);
   textAlign(CENTER);
   
   fill(0, 0, 0);
   textSize(20);
   text(sumdie, 350, 25);
+  
+  stroke(0,0,0);
+  strokeWeight(2);
+  fill(200,200,200);
+  rect(350,525,800,200);
+  
+  fill(0,0,0);
+  text("Legend", 350, 450);
+  
+  textSize(16);
+  text("1, 2, 3 - select number of dice", 350, 490);
+  text("8, 9, 0 - reroll individual dice", 350, 530);
+  text("R - reroll all dice", 350, 570);
 
   //die 1
   if (die1==0) {
-    image(side1, 350, 300, 200, 200);
+    image(side1, 350, 215, 200, 200);
   }
   if (die1==1) {
-    image(side1, 350, 300, 200, 200);
+    image(side1, 350, 215, 200, 200);
   }
   if (die1==2) {
-    image(side2, 350, 300, 200, 200);
+    image(side2, 350, 215, 200, 200);
   }
   if (die1==3) {
-    image(side3, 350, 300, 200, 200);
+    image(side3, 350, 215, 200, 200);
   }
   if (die1==4) {
-    image(side4, 350, 300, 200, 200);
+    image(side4, 350, 215, 200, 200);
   }
   if (die1==5) {
-    image(side5, 350, 300, 200, 200);
+    image(side5, 350, 215, 200, 200);
   }
   if (die1==6) {
-    image(side6, 350, 300, 200, 200);
+    image(side6, 350, 215, 200, 200);
   }
 
   //die 2
   if (display2) {
     if (die2==0) {
-      image(side1, 125, 300, 200, 200);
+      image(side1, 125, 215, 200, 200);
     }
     if (die2==1) {
-      image(side1, 125, 300, 200, 200);
+      image(side1, 125, 215, 200, 200);
     }
     if (die2==2) {
-      image(side2, 125, 300, 200, 200);
+      image(side2, 125, 215, 200, 200);
     }
     if (die2==3) {
-      image(side3, 125, 300, 200, 200);
+      image(side3, 125, 215, 200, 200);
     }
     if (die2==4) {
-      image(side4, 125, 300, 200, 200);
+      image(side4, 125, 215, 200, 200);
     }
     if (die2==5) {
-      image(side5, 125, 300, 200, 200);
+      image(side5, 125, 215, 200, 200);
     }
     if (die2==6) {
-      image(side6, 125, 300, 200, 200);
+      image(side6, 125, 215, 200, 200);
     }
   }
 
   //die 3
   if (display3) {
     if (die3==0) {
-      image(side1, 575, 300, 200, 200);
+      image(side1, 575, 215, 200, 200);
     }
     if (die3==1) {
-      image(side1, 575, 300, 200, 200);
+      image(side1, 575, 215, 200, 200);
     }
     if (die3==2) {
-      image(side2, 575, 300, 200, 200);
+      image(side2, 575, 215, 200, 200);
     }
     if (die3==3) {
-      image(side3, 575, 300, 200, 200);
+      image(side3, 575, 215, 200, 200);
     }
     if (die3==4) {
-      image(side4, 575, 300, 200, 200);
+      image(side4, 575, 215, 200, 200);
     }
     if (die3==5) {
-      image(side5, 575, 300, 200, 200);
+      image(side5, 575, 215, 200, 200);
     }
     if (die3==6) {
-      image(side6, 575, 300, 200, 200);
+      image(side6, 575, 215, 200, 200);
     }
   }
 }
@@ -144,7 +159,7 @@ void keyPressed() {
   }
   
   //rerolling single dice
-  if (key == '7') {
+  if (key == '8') {
     die1=int(random(1,7));
     
     if (display1 && !display2 && !display3) {
@@ -159,7 +174,7 @@ void keyPressed() {
       sumdie=die1+die2+die3;
     }
   }
-  if (key == '8') {
+  if (key == '9') {
     die2=int(random(1,7));
     
     if (display1 && !display2 && !display3) {
@@ -174,7 +189,7 @@ void keyPressed() {
       sumdie=die1+die2+die3;
     }
   }
-  if (key == '9') {
+  if (key == '0') {
     die3=int(random(1,7));
     
     if (display1 && !display2 && !display3) {
