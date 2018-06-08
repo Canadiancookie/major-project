@@ -14,6 +14,9 @@ int die3;
 //calculate die sides added together
 int sumdie;
 
+//text font
+PFont Normal;
+
 //display extra dice or not
 boolean display1 = true;
 boolean display2 = false;
@@ -37,10 +40,14 @@ void setup() {
   side4 = loadImage("side4.png");
   side5 = loadImage("side5.png");
   side6 = loadImage("side6.png");
+  
+  Normal = createFont("Lato Regular", 32);
 }
 
 void draw() {
   background(255, 255, 255);
+
+  textFont(Normal);
 
   imageMode(CENTER);
   rectMode(CENTER);
